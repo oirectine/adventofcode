@@ -1,0 +1,37 @@
+const input: string = await Bun.file("input_3.txt").text();
+
+
+// Use regex to find valid muls
+function findValid(inp: string) {
+    const re = new RegExp("mul\\(\\d{1,3},\\d{1,3}\\)|do\\(\\)|don't\\(\\)", "g");
+    return inp.match(re) || [];
+}
+
+// Get array of muls, then multiply the numbers
+function multiplyCorruptedInput(i: string): number {
+    let canDo = true;
+    let total = 0;
+    let mulArray = findValid(i);
+    for (let i of mulArray) {
+        if (i === "do()") {
+            canDo = true;
+            continue;
+        }
+        else if (i==="don't()") {
+            canDo = false;
+            continue;
+        }
+        else {
+            if (!canDo) continue;
+            let re = new RegExp("\\d{1,3}", "g");
+            let expr = Array.from(i.matchAll(re));
+            if (expr[0] && expr[1] && canDo) {
+                total+=Number(expr[0])*Number(expr[1]);
+            }
+        }
+
+    }
+    return total;
+}
+
+console.log(multiplyCorruptedInput(input));
