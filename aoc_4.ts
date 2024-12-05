@@ -47,7 +47,6 @@ function countWord(wordGrid: string[][], wordToSearch: string, sharedIndex: numb
             }
         }
     }
-    console.log(crossoverSet);
     return `Number of matches: ${count}\nNumber of crossovers: ${crossoverCount}`;
 }
 
