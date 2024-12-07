@@ -1,4 +1,4 @@
-let input: string = await Bun.file("input_2.txt").text();
+let input: string = await Bun.file("input.txt").text();
 
 let reports: string[] = input.split("\n");
 

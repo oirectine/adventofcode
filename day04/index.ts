@@ -1,4 +1,4 @@
-const input: string = await Bun.file("input_4.txt").text();
+const input: string = await Bun.file("input.txt").text();
 
 // Put string into a 2D array, with each element containing one single character
 let grid: string[][] = [];

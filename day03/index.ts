@@ -1,4 +1,4 @@
-const input: string = await Bun.file("input_3.txt").text();
+const input: string = await Bun.file("input.txt").text();
 
 
 // Use regex to find valid muls

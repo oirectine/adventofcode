@@ -1,7 +1,6 @@
-const input: string = await Bun.file("input_5.txt").text();
+const input: string = await Bun.file("input.txt").text();
 
 let fullString: string[] = input.split("\n");
-
 let rulesString: string[] = fullString.slice(0,fullString.indexOf(""));
 let pagesString: string[] = fullString.slice(fullString.indexOf("")).filter(a => a != "");
 
@@ -14,8 +13,7 @@ function countPages(rules: string[], pages: string[]): string {
         if (JSON.stringify(checkPage) === JSON.stringify(checkPage.sort(sortFunc))) {
             total += checkPage[(checkPage.length-1)/2]
         }
-        else incorrect += checkPage[(checkPage.length-1)/2];
-        
+        else incorrect += checkPage[(checkPage.length-1)/2]; 
     }
     return `Correct total: ${total}\nIncorrect total: ${incorrect}`;
 }

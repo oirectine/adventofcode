@@ -1,4 +1,4 @@
-const inputFile =  Bun.file("input_1.txt");
+const inputFile =  Bun.file("input.txt");
 
 let listString: string = await inputFile.text();
 let listPair: string[] = listString.split("\n");
