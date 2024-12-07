@@ -176,4 +176,4 @@ dist
 
 
 # Ignore input files
-*input_*.txt
+input.txt
