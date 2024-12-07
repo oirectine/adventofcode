@@ -9,7 +9,8 @@ bun install
 To run:
 
 ```bash
-bun run aoc_[number].ts
+cd day[number]
+bun run index.ts
 
 You'll need to provide your own data files (and remove empty lines if they fail) ;)
 ```
