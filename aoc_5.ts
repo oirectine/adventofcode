@@ -10,7 +10,6 @@ function countPages(rules: string[], pages: string[]): string {
     let total = 0;
     let incorrect = 0;
     for (let i of pages) {
-        let validPages = true;
         let checkPage = (i.match(/\d+/g) || []).map(x => Number(x));
         if (JSON.stringify(checkPage) === JSON.stringify(checkPage.sort(sortFunc))) {
             total += checkPage[(checkPage.length-1)/2]
