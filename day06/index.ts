@@ -57,13 +57,12 @@ function findVisits(aGrid: string[][]): number { // Return number of locations i
 
 function countLoops(aGrid: string[][]): number { // TODO: Optimise further by testing only visited spaces in initial run.
     let loopCount = 0;       
-    let modGrid = [...aGrid];
-    for (let i in modGrid) {
-        for (let j = 0; j < modGrid.length; j++) {
-            if (modGrid[i][j] == ".") {
-                modGrid[i].splice(j, 1, "#");
-                if (findVisits(modGrid) < 0) loopCount++;
-                modGrid[i].splice(j, 1, ".");
+    for (let i in aGrid) {
+        for (let j = 0; j < aGrid.length; j++) {
+            if (aGrid[i][j] == ".") {
+                aGrid[i].splice(j, 1, "#");
+                if (findVisits(aGrid) < 0) loopCount++;
+                aGrid[i].splice(j, 1, ".");
             }
         }
     }
