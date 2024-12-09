@@ -12,7 +12,7 @@ for (let i of lines) {
 
 function countResult(results: number[], digits: number[][]): string {
     let count = 0;
-    for (let i = 0; i < results.length; i++) {
+    for (let i in results) {
         if (getCombinations(digits[i]).indexOf(results[i]) >= 0) {
             count += results[i];
         }
@@ -21,7 +21,8 @@ function countResult(results: number[], digits: number[][]): string {
 }
 
 function getCombinations(inputArray: number[]): number[] {
-    if (inputArray.length == 1) return [inputArray[0]];
+    if (inputArray.length == 0) return [0];
+    else if (inputArray.length == 1) return [inputArray[0]];
     else {
         let result: number[] = [];
         let last = inputArray[inputArray.length - 1];
