@@ -24,10 +24,16 @@ function findAntinodes(inputString: string): string {
             // Cycically compare 2 coords, and place an antinode in the set.
             for (let k = 1; k < i.length; k++) {
                 let result = [i[j][0]-i[(j+k) % i.length][0], i[j][1]-i[(j+k) % i.length][1]] // This abomination calculates the vector of 2 antennas
-                let antinodeCoords = [Number(i[j][0]) + result[0], Number(i[j][1]) + result[1]];
-                if (antinodeCoords[0] >= 0 && antinodeCoords[0] < height && antinodeCoords[1] >= 0 && antinodeCoords[1] < width) {
-                    antinodeSet.add(JSON.stringify(antinodeCoords));
+                let antennaCoords = [Number(i[j][0]), Number(i[j][1])]
+                let antinodeCoords = [];
+
+                // Add antinodes until out of bounds.
+                while (antennaCoords[0] >= 0 && antennaCoords[0] < height && antennaCoords[1] >= 0 && antennaCoords[1] < width) {
+                    antinodeCoords.push([...antennaCoords]);
+                    antennaCoords.splice(0, 1, antennaCoords[0] += result[0]);
+                    antennaCoords.splice(1, 1, antennaCoords[1] += result[1]);
                 }
+                antinodeCoords.forEach(x => antinodeSet.add(JSON.stringify(x)));
             }
         }
     }
