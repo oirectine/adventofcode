@@ -21,7 +21,7 @@ function findAntinodes(inputString: string): string {
     let antinodeSet = new Set<string>();
     for (let i of coordMap.values()) {
         for (let j = 0; j < i.length; j++) {
-            // Cycically compare 2 coords, and place an antinode in the set.
+            // Funky cyclical loop to calculate vectors of [a,b],[b,c],[c,a] etc.
             for (let k = 1; k < i.length; k++) {
                 let result = [i[j][0]-i[(j+k) % i.length][0], i[j][1]-i[(j+k) % i.length][1]] // This abomination calculates the vector of 2 antennas
                 let antennaCoords = [Number(i[j][0]), Number(i[j][1])]
