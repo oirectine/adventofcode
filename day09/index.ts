@@ -38,7 +38,7 @@ function defragment (inputFile: string, defragFiles: boolean = false): string {
     }
     // Defragment files for part 2
     else {
-        for (let i = fileid - 1; i>=0; i--) {
+        for (let i = fileid - 1; i >= 0; i--) {
             let filePointer = diskImage.indexOf(i);
             let fileSize = diskImage.lastIndexOf(i) - filePointer + 1;
 
