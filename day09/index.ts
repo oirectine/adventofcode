@@ -2,7 +2,7 @@ const input = await Bun.file("input.txt").text();
 
 function defragment (inputFile: string, defragFiles: boolean = false): string {
     const splitInput = inputFile.split("");
-    const diskImage: (number | null)[] = [];
+    const diskImage = [];
     let checksum = 0;
 
     // Create disk map
