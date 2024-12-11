@@ -74,7 +74,7 @@ function defragment (inputFile: string, defragFiles: boolean = false): string {
         }
     }
 
-    return `Checksum of disk image: ${checksum}`;
+    return `${checksum}`;
 }
 
 console.log(`Part 1 checksum: ${defragment(input)}\nPart 2 checksum: ${defragment(input, true)}`);
