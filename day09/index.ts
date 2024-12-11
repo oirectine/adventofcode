@@ -45,7 +45,7 @@ function defragment (inputFile: string, defragFiles: boolean = false): string {
             //Find adequate space
             let desPointer = -1;
             let nullCount = 0;
-            for (let i = 0; i < filePointer; i++) {
+            for (let i = 0; i <= filePointer; i++) {
                 if (diskImage[i] === null) nullCount++;
                 if (i >= fileSize) {
                     if (diskImage[i - fileSize] === null) nullCount--;
