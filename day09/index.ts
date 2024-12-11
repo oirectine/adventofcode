@@ -44,7 +44,7 @@ function fragment (inputFile: string): string {
         }
     }
 
-    return `${checksum}`;
+    return `Checksum of disk image: ${checksum}`;
 }
 
 console.log(fragment(input));
