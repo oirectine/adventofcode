@@ -12,7 +12,7 @@ function findAntinodes(inputString: string): string {
         for (let j in chars) {
             if (chars[j] !== ".") {
                 if (!coordMap.has(chars[j])) coordMap.set(chars[j], []);
-                coordMap.get(chars[j]).push([i, j]);
+                coordMap.get(chars[j]).push([+i, +j]);
             }
         }
     }
@@ -24,7 +24,7 @@ function findAntinodes(inputString: string): string {
             // Funky cyclical loop to calculate vectors of [a,b],[a,c],[b,a] etc.
             for (let k = 1; k < i.length; k++) {
                 let result = [i[j][0]-i[(j+k) % i.length][0], i[j][1]-i[(j+k) % i.length][1]] // This abomination calculates the vector of 2 antennas
-                let antennaCoords = [Number(i[j][0]), Number(i[j][1])]
+                let antennaCoords = [i[j][0], i[j][1]]
                 let antinodeCoords = [];
 
                 // Add antinodes until out of bounds.
