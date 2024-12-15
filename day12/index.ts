@@ -55,7 +55,7 @@ function getField(x: number, y:number, inputMap: Map<string, string>): {fieldSet
         const j = JSON.parse(i);
         for (let d = 0; d < directions.length; d++) {
             const check1 = edgeMap.get(`[${directions[(d + 1) % 4]}]`)?.has(`[${j[0] + directions[d][0]}, ${j[1] + directions[d][1]}]`);
-            const check2 = edgeMap.get(`[${directions[(d + 0) % 4]}]`)?.has(`[${j[0] + directions[(d + 1) % 4][0]}, ${j[1] + directions[(d + 1) % 4][1]}]`);
+            const check2 = edgeMap.get(`[${directions[d]}]`)?.has(`[${j[0] + directions[(d + 1) % 4][0]}, ${j[1] + directions[(d + 1) % 4][1]}]`);
             if (check1 && check2) {
                 cornerCount++;
             }
