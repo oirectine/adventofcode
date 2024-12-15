@@ -14,7 +14,6 @@ for (let x in splitInput){
 function getField(x: number, y:number, inputMap: Map<string, string>): {fieldSet: Set<string>, perimeter: number, corners: number} {
     const fields = new Set<string>();
     const edgeMap = new Map<string, Set<string>>(); // Stores a direction, and a set of coords with a fence in that direction 
-    const allEdges = new Set<string>();
     const directions = [[0, 1], [1, 0], [0, -1], [-1, 0]];
     const character = inputMap.get(`[${x}, ${y}]`);
     let fenceCount: number = 0;
@@ -36,7 +35,6 @@ function getField(x: number, y:number, inputMap: Map<string, string>): {fieldSet
             }
             else {
                 edgeMap.get(`[${d}]`)?.add(`[${x}, ${y}]`);
-                allEdges.add(`[${x}, ${y}]`);
             }
         }
         fenceCount += blockFences;
