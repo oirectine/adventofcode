@@ -24,7 +24,7 @@ function getField(x: number, y:number, inputMap: Map<string, string>): {fieldSet
         edgeMap.set(`[${d}]`, new Set());
     }
 
-    // TODO: Create function to count edges for part 2
+    // Flood fill, and also detect edges and add them to their appropriate sets
     function floodFill(x: number, y: number): void {
         let blockFences = 4;
         fields.add(`[${x}, ${y}]`);
