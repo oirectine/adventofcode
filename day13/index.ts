@@ -19,8 +19,8 @@ for (let d in data) {
     buttonA[index].push(Number(lines[0].substring(18, 20)));
     buttonB[index].push(Number(lines[1].substring(12, 14)));
     buttonB[index].push(Number(lines[1].substring(18, 20)));
-    target[index].push(Number(lines[2].substring(lines[2].indexOf("=") + 1, lines[2].indexOf(","))));
-    target[index].push(Number(lines[2].substring(lines[2].lastIndexOf("=") + 1)));
+    target[index].push(Number(lines[2].substring(lines[2].indexOf("=") + 1, lines[2].indexOf(","))) + 10000000000000);
+    target[index].push(Number(lines[2].substring(lines[2].lastIndexOf("=") + 1)) + 10000000000000);
 }
 
 for (let d in data) {
@@ -29,10 +29,11 @@ for (let d in data) {
     const constants = matrix(target[index]);
 
     const answers = lusolve(coefficients, constants);
-    const filtered = map(filter(flatten(answers), (x) => abs(x - round(x)) < Number.EPSILON * 100), (x) => round(x)).valueOf() as number[];
+    const filtered = map(filter(flatten(answers), (x) => abs(x - round(x)) < Number.EPSILON * 1000000000000), (x) => round(x)).valueOf() as number[];
 
-    if (filtered.length > 0) results.push(filtered);
+    if (filtered.length === 2) results.push(filtered);
 }
+console.log(results);
 
 const result = results.reduce((sums, row) => row.map((num, i) => sums[i] + num), [0, 0]);
 
