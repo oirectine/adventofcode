@@ -33,8 +33,5 @@ for (let d in data) {
 
     if (filtered.length === 2) results.push(filtered);
 }
-console.log(results);
-
 const result = results.reduce((sums, row) => row.map((num, i) => sums[i] + num), [0, 0]);
-
 console.log(`Cost to win all prizes: ${(result[0] * 3) + result[1]}`);
