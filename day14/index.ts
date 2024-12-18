@@ -39,10 +39,9 @@ function findTree(bots: number[][][], width: number, height: number): string {
     const r = moveBots(bots, 100, width, height);
     const safetyFactor = r.bl * r.br * r.tl * r.tr;
     let treeNumber: number = 0;
-    let found: boolean = false;
     const e = 210;
 
-    while (!found) {
+    while (true) {
         treeNumber++;
         const c = moveBots(clonedBots, 1, width, height);
         if (c.tl > e || c.tr > e || c.bl > e || c.br > e) break;
